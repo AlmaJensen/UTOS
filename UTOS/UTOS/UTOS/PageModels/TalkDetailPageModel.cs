@@ -13,15 +13,20 @@ namespace UTOS.PageModels
     [ImplementPropertyChanged]
     public class TalkDetailPageModel : FreshBasePageModel
     {
-        public Talk SeletectedTalk { get; set; } = new Talk();
+        public Talk SelectedTalk { get; set; } = new Talk();
         public ObservableCollection<Speaker> Speakers { get; set; } = new ObservableCollection<Speaker>();
         public override void Init(object initData)
         {
             base.Init(initData);
             
-            SeletectedTalk = initData as Talk;
-            if (SeletectedTalk == null)
-                SeletectedTalk = new Talk();
+            SelectedTalk = initData as Talk;
+            if (SelectedTalk == null)
+                SelectedTalk = new Talk();
+            if (SelectedTalk.speakers.Count > 0)
+            {
+                Speakers = new ObservableCollection<Speaker>(SelectedTalk.speakers);
+            }
+                
         }
     }
 }
