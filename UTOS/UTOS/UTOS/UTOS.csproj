@@ -37,11 +37,14 @@
   <ItemGroup>
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
     <Compile Include="API\API.cs" />
+    <Compile Include="API\ModelConverters.cs" />
     <Compile Include="API\Resources.cs" />
     <Compile Include="API\Speaker.cs" />
     <Compile Include="API\Sponsor.cs" />
     <Compile Include="API\Talk.cs" />
     <Compile Include="App.cs" />
+    <Compile Include="DataModels\SessionDM.cs" />
+    <Compile Include="DataModels\SpeakerDM.cs" />
     <Compile Include="PageModels\AboutPageModel.cs" />
     <Compile Include="PageModels\AllSessionsPageModel.cs" />
     <Compile Include="PageModels\MenuPageModel.cs" />

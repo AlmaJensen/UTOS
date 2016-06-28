@@ -1,12 +1,8 @@
 ﻿using FreshMvvm;
 using PropertyChanged;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UTOS.API;
+using UTOS.DataModels;
 using UTOS.Services;
 using Xamarin.Forms;
 
@@ -24,13 +20,12 @@ namespace UTOS.PageModels
         {
             base.Init(initData);
             LoadCollection();
-            Sessions = new ObservableCollection<Talk>();
         }
 
         private async void LoadCollection()
         {
             var talks = await DataService.GetSessions();
-            Sessions = new ObservableCollection<Talk>(talks);
+            Sessions = new ObservableCollection<SessionDM>(talks);
         }
         Talk _selectedEntry;
         public Talk SelectedEntry
@@ -46,15 +41,15 @@ namespace UTOS.PageModels
                     EntrySelected.Execute(value);
             }
         }
-        public Command<Talk> EntrySelected
+        public Command<SessionDM> EntrySelected
         {
             get
             {
-                return new Command<Talk>(async (talk) => {
+                return new Command<SessionDM>(async (talk) => {
                     await CoreMethods.PushPageModel<TalkDetailPageModel>(talk);
                 });
             }
         }
-        public ObservableCollection<Talk> Sessions { get; set; } = new ObservableCollection<Talk>();
+        public ObservableCollection<SessionDM> Sessions { get; set; } = new ObservableCollection<SessionDM>();
     }
 }

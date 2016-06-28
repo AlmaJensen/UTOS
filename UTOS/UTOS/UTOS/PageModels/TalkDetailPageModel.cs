@@ -7,27 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UTOS.API;
+using UTOS.DataModels;
 
 namespace UTOS.PageModels
 {
     [ImplementPropertyChanged]
     public class TalkDetailPageModel : FreshBasePageModel
     {
-        public Talk SelectedTalk { get; set; } = new Talk();
-        public Speaker Speakers { get; set; } = new Speaker();
+        public SessionDM SelectedTalk { get; set; } = new SessionDM();
+        public SpeakerDM Speaker { get; set; } = new SpeakerDM();
         public override void Init(object initData)
         {
             base.Init(initData);
             
-            SelectedTalk = initData as Talk;
+            SelectedTalk = initData as SessionDM;
             if (SelectedTalk == null)
-                SelectedTalk = new Talk();
-            if (SelectedTalk.speakers.Count > 0)
-            {
-                Speakers = SelectedTalk.speakers.FirstOrDefault();
-                if (!string.IsNullOrEmpty(Speakers.gravatar_hash))
-                    Speakers.gravatar_hash = Resources.GravatarBaseURL + Speakers.gravatar_hash + Resources.GravatarEnding;
-            }
+                SelectedTalk = new SessionDM();
+            else
+                Speaker = SelectedTalk.Speaker;
                 
         }
     }

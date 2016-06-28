@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UTOS.API;
+﻿using UTOS.DataModels;
 using Xamarin.Forms;
 
 namespace UTOS.ViewCells
@@ -12,8 +7,8 @@ namespace UTOS.ViewCells
     {
         public ScheduleItemCell()
         {
-            Description.SetBinding(Label.TextProperty, nameof(Talk.title));
-            Track.SetBinding(Label.TextProperty, nameof(Talk.track));
+            Description.SetBinding(Label.TextProperty, nameof(SessionDM.Title));
+            Track.SetBinding(Label.TextProperty, nameof(SessionDM.Track));
             MainLayout.Children.Add(Description);
             MainLayout.Children.Add(Track);
             View = MainLayout;

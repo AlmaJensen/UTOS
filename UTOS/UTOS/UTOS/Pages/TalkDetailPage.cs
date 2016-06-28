@@ -20,12 +20,11 @@ namespace UTOS.Pages
         Label TalkTitle = new Label();
         Label Track = new Label();
         Label Description = new Label() { VerticalOptions = LayoutOptions.FillAndExpand };
-        ListView Speaker = new ListView(ListViewCachingStrategy.RecycleElement);
         public TalkDetailPage()
         {
-            Name.SetBinding(Label.TextProperty, "Speakers.name");
-            TwitterHandle.SetBinding(Label.TextProperty, "Speakers.twitter");
-            Hero.SetBinding(Image.SourceProperty, "Speakers.gravatar_hash");
+            Name.SetBinding(Label.TextProperty, "Speakers.Name");
+            TwitterHandle.SetBinding(Label.TextProperty, "Speakers.Twitter");
+            Hero.SetBinding(Image.SourceProperty, "Speakers.GravatarImageSource");
             SpeakerInfo.Children.Add(Hero);
             var innerLayout = new StackLayout()
             {
@@ -36,15 +35,12 @@ namespace UTOS.Pages
             };
             SpeakerInfo.Children.Add(innerLayout);
 
-            Speaker.HasUnevenRows = true;
-            Speaker.ItemTemplate = new DataTemplate(typeof(SpeakerDetail));
-            Speaker.SetBinding(ListView.ItemsSourceProperty, nameof(TalkDetailPageModel.Speakers));
-            Time.SetBinding(Label.TextProperty, "SelectedTalk.ts");
-            TalkTitle.SetBinding(Label.TextProperty, "SelectedTalk.title");
-            Track.SetBinding(Label.TextProperty, "SelectedTalk.track");
+            Time.SetBinding(Label.TextProperty, "SelectedTalk.DateAndTime");
+            TalkTitle.SetBinding(Label.TextProperty, "SelectedTalk.Title");
+            Track.SetBinding(Label.TextProperty, "SelectedTalk.Track");
             var descriptionScroll = new ScrollView();
             descriptionScroll.Content = Description;
-            Description.SetBinding(Label.TextProperty, "SelectedTalk.description");
+            Description.SetBinding(Label.TextProperty, "SelectedTalk.Description");
 
 
             Content = new StackLayout

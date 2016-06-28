@@ -9,7 +9,7 @@ namespace UTOS.API
     public class Talk
     {
         public int talkid { get; set; }
-        public string ts { get; set; }
+        public DateTime ts { get; set; }
         public string title { get; set; }
         public string track { get; set; }
         public string description { get; set; }
