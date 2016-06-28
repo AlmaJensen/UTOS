@@ -1,7 +1,6 @@
 ﻿using FreshMvvm;
 using PropertyChanged;
 using System.Collections.ObjectModel;
-using UTOS.API;
 using UTOS.DataModels;
 using UTOS.Services;
 using Xamarin.Forms;
@@ -27,8 +26,8 @@ namespace UTOS.PageModels
             var talks = await DataService.GetSessions();
             Sessions = new ObservableCollection<SessionDM>(talks);
         }
-        Talk _selectedEntry;
-        public Talk SelectedEntry
+        SessionDM _selectedEntry;
+        public SessionDM SelectedEntry
         {
             get
             {
