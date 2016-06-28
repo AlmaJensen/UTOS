@@ -14,7 +14,7 @@ namespace UTOS.PageModels
     public class TalkDetailPageModel : FreshBasePageModel
     {
         public Talk SelectedTalk { get; set; } = new Talk();
-        public ObservableCollection<Speaker> Speakers { get; set; } = new ObservableCollection<Speaker>();
+        public Speaker Speakers { get; set; } = new Speaker();
         public override void Init(object initData)
         {
             base.Init(initData);
@@ -24,7 +24,9 @@ namespace UTOS.PageModels
                 SelectedTalk = new Talk();
             if (SelectedTalk.speakers.Count > 0)
             {
-                Speakers = new ObservableCollection<Speaker>(SelectedTalk.speakers);
+                Speakers = SelectedTalk.speakers.FirstOrDefault();
+                if (!string.IsNullOrEmpty(Speakers.gravatar_hash))
+                    Speakers.gravatar_hash = Resources.GravatarBaseURL + Speakers.gravatar_hash + Resources.GravatarEnding;
             }
                 
         }
