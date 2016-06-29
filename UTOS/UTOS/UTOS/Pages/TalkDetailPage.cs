@@ -11,6 +11,7 @@ namespace UTOS.Pages
 {
     public class TalkDetailPage : ContentPage
     {
+        StackLayout MainLayout = new StackLayout() { Orientation = StackOrientation.Horizontal };
         Image Hero = new Image();
         Label Name = new Label();
         Label TwitterHandle = new Label();
@@ -22,10 +23,11 @@ namespace UTOS.Pages
         Label Description = new Label() { VerticalOptions = LayoutOptions.FillAndExpand };
         public TalkDetailPage()
         {
-            Name.SetBinding(Label.TextProperty, "Speakers.Name");
-            TwitterHandle.SetBinding(Label.TextProperty, "Speakers.Twitter");
-            Hero.SetBinding(Image.SourceProperty, "Speakers.GravatarImageSource");
+            Name.SetBinding(Label.TextProperty, "Speaker.Name");
+            TwitterHandle.SetBinding(Label.TextProperty, "Speaker.Twitter");
+            Hero.SetBinding(Image.SourceProperty, "Speaker.GravatarImageSource");
             SpeakerInfo.Children.Add(Hero);
+            MainLayout.Children.Add(Hero);
             var innerLayout = new StackLayout()
             {
                 Children =
@@ -33,7 +35,7 @@ namespace UTOS.Pages
                     Name, TwitterHandle
                 }
             };
-            SpeakerInfo.Children.Add(innerLayout);
+            MainLayout.Children.Add(innerLayout);
 
             Time.SetBinding(Label.TextProperty, "SelectedTalk.DateAndTime");
             TalkTitle.SetBinding(Label.TextProperty, "SelectedTalk.Title");
@@ -46,7 +48,7 @@ namespace UTOS.Pages
             Content = new StackLayout
             {
                 Children = {
-                   Time, TalkTitle, Track, descriptionScroll
+                  MainLayout, Time, TalkTitle, Track, descriptionScroll
                 }
             };
         }
