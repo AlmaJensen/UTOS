@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImageCircle.Forms.Plugin.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
@@ -12,7 +13,7 @@ namespace UTOS.Pages
     public class TalkDetailPage : ContentPage
     {
         StackLayout MainLayout = new StackLayout() { Orientation = StackOrientation.Horizontal };
-        Image Hero = new Image();
+        CircleImage Hero = new CircleImage() { Aspect = Aspect.Fill, HeightRequest = 75, WidthRequest = 75 };
         Label Name = new Label();
         Label TwitterHandle = new Label();
         StackLayout SpeakerInfo = new StackLayout() { Orientation = StackOrientation.Horizontal };
