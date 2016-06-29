@@ -10,5 +10,6 @@ namespace UTOS.DataModels
     {
         public string UTOSScheduleID { get; set; }
         public List<SessionDM> PlannedSessions { get; set; }
+        public bool AddedToWebSchedule { get; set; } = false;
     }
 }

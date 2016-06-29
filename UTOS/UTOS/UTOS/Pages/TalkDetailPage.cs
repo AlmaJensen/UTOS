@@ -50,7 +50,7 @@ namespace UTOS.Pages
             {
                 Children = {
                   MainLayout, Time, TalkTitle, Track, descriptionScroll
-                }
+                }  
             };
         }
     }
