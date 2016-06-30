@@ -9,13 +9,13 @@ namespace UTOS.Services
 {
     public interface IStorageService
     {
-        Task<PrivateScheduleDM> GetPersonalSchedule();
-        Task<bool> UpdatePersonalSchedule();
-        Task<IEnumerable<SessionDM>> GetPersonalScheduleID();
-        Task<bool> UpdatePersonalScheduleID();
-        Task<IEnumerable<SessionDM>> GetCachedSessions();
-        Task<bool> UpdateCachedSessions();
-        Task<DateTime> GetSessionsCacheTime();
-        Task<bool> UpdateSessionCacheTime();
+        PrivateScheduleDM GetPersonalSchedule();
+        void UpdatePersonalSchedule(PrivateScheduleDM schedule);
+        IEnumerable<SessionDM> GetPersonalScheduleID();
+        void UpdatePersonalScheduleID(string idString);
+        IEnumerable<SessionDM> GetCachedSessions();
+        void UpdateCachedSessions(IEnumerable<SessionDM> sessions);
+        DateTime GetSessionsCacheTime();
+        void UpdateSessionCacheTime();
     }
 }

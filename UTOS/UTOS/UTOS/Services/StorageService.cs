@@ -10,26 +10,21 @@ namespace UTOS.Services
 {
     public class StorageService : IStorageService
     {
+
+
+
+
+
+
+
+
+
+
+
+
+
         private enum StorageKeys { UserSchedule, LastCacheDate, CompleteSchedule, }
-        public Task<IEnumerable<SessionDM>> GetCachedSessions()
-        {
-            
-        }
 
-        public Task<PrivateScheduleDM> GetPersonalSchedule()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<SessionDM>> GetPersonalScheduleID()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<DateTime> GetSessionsCacheTime()
-        {
-            throw new NotImplementedException();
-        }
 
         public void UpdateCachedSessions(IEnumerable<SessionDM> sessions)
         {
@@ -37,23 +32,44 @@ namespace UTOS.Services
            BlobCache.LocalMachine.InsertObject(StorageKeys.CompleteSchedule.ToString(), sessions);
         }
 
-        public Task<bool> UpdatePersonalSchedule()
+
+
+
+
+        PrivateScheduleDM IStorageService.GetPersonalSchedule()
+        {
+            var schedule = (PrivateScheduleDM)BlobCache.LocalMachine.GetObject<PrivateScheduleDM>(StorageKeys.UserSchedule.ToString());
+
+        }
+
+        public void UpdatePersonalSchedule(PrivateScheduleDM schedule)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdatePersonalScheduleID()
+        IEnumerable<SessionDM> IStorageService.GetPersonalScheduleID()
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateSessionCacheTime()
+        public void UpdatePersonalScheduleID(string idString)
         {
             throw new NotImplementedException();
         }
 
+        IEnumerable<SessionDM> IStorageService.GetCachedSessions()
+        {
+            throw new NotImplementedException();
+        }
 
+        DateTime IStorageService.GetSessionsCacheTime()
+        {
+            throw new NotImplementedException();
+        }
 
-
+        void IStorageService.UpdateSessionCacheTime()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
