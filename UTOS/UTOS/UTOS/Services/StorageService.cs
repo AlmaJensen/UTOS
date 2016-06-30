@@ -10,66 +10,50 @@ namespace UTOS.Services
 {
     public class StorageService : IStorageService
     {
-
-
-
-
-
-
-
-
-
-
-
-
-
-        private enum StorageKeys { UserSchedule, LastCacheDate, CompleteSchedule, }
-
-
+        private enum StorageKeys { UserSchedule, LastCacheDate, CompleteSchedule, UserScheduleID}
         public void UpdateCachedSessions(IEnumerable<SessionDM> sessions)
         {
-           BlobCache.LocalMachine.Invalidate(StorageKeys.CompleteSchedule.ToString());
-           BlobCache.LocalMachine.InsertObject(StorageKeys.CompleteSchedule.ToString(), sessions);
+            BlobCache.LocalMachine.Invalidate(StorageKeys.CompleteSchedule.ToString());
+            BlobCache.LocalMachine.InsertObject(StorageKeys.CompleteSchedule.ToString(), sessions);
         }
-
-
-
-
-
-        PrivateScheduleDM IStorageService.GetPersonalSchedule()
+        public IEnumerable<SessionDM> GetCachedSessions()
         {
-            var schedule = (PrivateScheduleDM)BlobCache.LocalMachine.GetObject<PrivateScheduleDM>(StorageKeys.UserSchedule.ToString());
-
+            var response = BlobCache.LocalMachine.GetObject<SessionDM> (StorageKeys.CompleteSchedule.ToString());
+            return response as IEnumerable<SessionDM>;
         }
 
         public void UpdatePersonalSchedule(PrivateScheduleDM schedule)
         {
-            throw new NotImplementedException();
+            BlobCache.LocalMachine.Invalidate(StorageKeys.CompleteSchedule.ToString(StorageKeys.UserSchedule.ToString()));
+            BlobCache.LocalMachine.InsertObject(StorageKeys.UserSchedule.ToString(), schedule);
         }
-
-        IEnumerable<SessionDM> IStorageService.GetPersonalScheduleID()
+        public PrivateScheduleDM GetPersonalSchedule()
         {
-            throw new NotImplementedException();
+            var schedule = (PrivateScheduleDM)BlobCache.LocalMachine.GetObject<PrivateScheduleDM>(StorageKeys.UserSchedule.ToString());
+            return schedule;
         }
 
         public void UpdatePersonalScheduleID(string idString)
         {
-            throw new NotImplementedException();
+            BlobCache.LocalMachine.Invalidate(StorageKeys.CompleteSchedule.ToString(StorageKeys.UserScheduleID.ToString()));
+            BlobCache.LocalMachine.InsertObject(StorageKeys.UserSchedule.ToString(), idString);
+        }
+        public string GetPersonalScheduleID()
+        {
+            var id = BlobCache.LocalMachine.GetObject<PrivateScheduleDM>(StorageKeys.UserScheduleID.ToString());
+            return id.ToString();
         }
 
-        IEnumerable<SessionDM> IStorageService.GetCachedSessions()
-        {
-            throw new NotImplementedException();
-        }
 
-        DateTime IStorageService.GetSessionsCacheTime()
+        public void UpdateSessionCacheTime(DateTime time)
         {
-            throw new NotImplementedException();
+            BlobCache.LocalMachine.Invalidate(StorageKeys.CompleteSchedule.ToString(StorageKeys.LastCacheDate.ToString()));
+            BlobCache.LocalMachine.InsertObject(StorageKeys.UserSchedule.ToString(), time);
         }
-
-        void IStorageService.UpdateSessionCacheTime()
+        public DateTime GetSessionsCacheTime()
         {
-            throw new NotImplementedException();
+            var time = BlobCache.LocalMachine.GetObject<PrivateScheduleDM>(StorageKeys.LastCacheDate.ToString());
+            return DateTime.Now;
         }
     }
 }

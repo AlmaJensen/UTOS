@@ -10,7 +10,7 @@ namespace UTOS.Services
 {
     public class DataService : IDataService
     {
-
+        StorageService storage = new StorageService();
         public async Task<IEnumerable<SessionDM>> GetSessions()
         {
             var api = new API.API();
@@ -26,6 +26,8 @@ namespace UTOS.Services
                 if (s.type == "Talk")
                     talks.Add(ModelConverters.ConvertTalkToDM(s));
             }
+            storage.UpdateCachedSessions(talks);
+            var t = storage.GetCachedSessions();
             return talks;
         }
 
