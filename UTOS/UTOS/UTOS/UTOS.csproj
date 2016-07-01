@@ -43,6 +43,7 @@
     <Compile Include="API\Sponsor.cs" />
     <Compile Include="API\Talk.cs" />
     <Compile Include="App.cs" />
+    <Compile Include="DataModels\GeneralScheduleDM.cs" />
     <Compile Include="DataModels\PrivateScheduleDM.cs" />
     <Compile Include="DataModels\SessionDM.cs" />
     <Compile Include="DataModels\SpeakerDM.cs" />
@@ -51,11 +52,13 @@
     <Compile Include="PageModels\MenuPageModel.cs" />
     <Compile Include="PageModels\SponsorsPageModel.cs" />
     <Compile Include="PageModels\TalkDetailPageModel.cs" />
+    <Compile Include="PageModels\WebPageModel.cs" />
     <Compile Include="Pages\AboutPage.cs" />
     <Compile Include="Pages\AllSessionsPage.cs" />
     <Compile Include="Pages\MenuPage.cs" />
     <Compile Include="Pages\SponsorsPage.cs" />
     <Compile Include="Pages\TalkDetailPage.cs" />
+    <Compile Include="Pages\WebPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="Services\DataService.cs" />

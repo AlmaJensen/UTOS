@@ -15,5 +15,9 @@ namespace UTOS
             "Xamarin Forms", "Akavache", "Fresh MVVM", "Fresh Essentials", "Newtonsoft Json", "Fody", "Fody Property Changed", "Xam Plugin Connectivity", "Image Circle"
             , "Splat", ".Net Http", "SQLLite"
         };
+        public const string TwitterURL = "https://twitter.com/openwestconf";
+        public const string FacebookURL = "https://www.facebook.com/OpenWest";
+        public const string OpenWestURL = "https://www.openwest.org/";
+        public const string HackCenter = "https://www.openwest.org/hackcenter/";
     }
 }
