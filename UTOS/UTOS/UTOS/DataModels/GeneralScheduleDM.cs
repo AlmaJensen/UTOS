@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace UTOS.DataModels
 {
-    public class PrivateScheduleDM
+    public class GeneralScheduleDM
     {
-        public string UTOSScheduleID { get; set; }
-        public List<SessionDM> PlannedSessions { get; set; }
-        public bool AddedToWebSchedule { get; set; } = false;
         public DateTime LastCacheDateTime { get; set; }
+        public List<SessionDM> PlannedSessions { get; set; }
     }
 }

@@ -10,16 +10,11 @@ namespace UTOS.Services
     public interface IStorageService
     {
 
-        void UpdateCachedSessions(IEnumerable<SessionDM> sessions);
-        IEnumerable<SessionDM> GetCachedSessions();
+        void UpdateCachedSessions(GeneralScheduleDM sessions);
+        GeneralScheduleDM GetCachedSessions();
 
         void UpdatePersonalSchedule(PrivateScheduleDM schedule);
         PrivateScheduleDM GetPersonalSchedule();
-
-        void UpdatePersonalScheduleID(string idString);
-        string GetPersonalScheduleID();
-
-        
 
         DateTime GetSessionsCacheTime();
         void UpdateSessionCacheTime(DateTime time);

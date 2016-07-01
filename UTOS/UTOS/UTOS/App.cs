@@ -14,7 +14,6 @@ namespace UTOS
     {
         public App()
         {
-            
             FreshIOC.Container.Register<IDataService, DataService>();
             var masterDetail = new FreshMasterDetailNavigationContainer();
             var detail = FreshPageModelResolver.ResolvePageModel<AllSessionsPageModel>();
@@ -29,7 +28,8 @@ namespace UTOS
         protected override void OnStart()
         {
             // Handle when your app starts
-            BlobCache.ApplicationName = "UTOS";
+            //BlobCache.EnsureInitialized();
+            //BlobCache.ApplicationName = "UTOS";
         }
 
         protected override void OnSleep()

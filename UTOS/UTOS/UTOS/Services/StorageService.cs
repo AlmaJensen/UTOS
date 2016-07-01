@@ -11,15 +11,15 @@ namespace UTOS.Services
     public class StorageService : IStorageService
     {
         private enum StorageKeys { UserSchedule, LastCacheDate, CompleteSchedule, UserScheduleID}
-        public void UpdateCachedSessions(IEnumerable<SessionDM> sessions)
+        public void UpdateCachedSessions(GeneralScheduleDM sessions)
         {
             BlobCache.LocalMachine.Invalidate(StorageKeys.CompleteSchedule.ToString());
             BlobCache.LocalMachine.InsertObject(StorageKeys.CompleteSchedule.ToString(), sessions);
         }
-        public IEnumerable<SessionDM> GetCachedSessions()
+        public GeneralScheduleDM GetCachedSessions()
         {
-            var response = BlobCache.LocalMachine.GetObject<SessionDM> (StorageKeys.CompleteSchedule.ToString());
-            return response as IEnumerable<SessionDM>;
+            var response = BlobCache.LocalMachine.GetObject<GeneralScheduleDM> (StorageKeys.CompleteSchedule.ToString());
+            return response as GeneralScheduleDM;
         }
 
         public void UpdatePersonalSchedule(PrivateScheduleDM schedule)
@@ -33,26 +33,15 @@ namespace UTOS.Services
             return schedule;
         }
 
-        public void UpdatePersonalScheduleID(string idString)
-        {
-            BlobCache.LocalMachine.Invalidate(StorageKeys.CompleteSchedule.ToString(StorageKeys.UserScheduleID.ToString()));
-            BlobCache.LocalMachine.InsertObject(StorageKeys.UserSchedule.ToString(), idString);
-        }
-        public string GetPersonalScheduleID()
-        {
-            var id = BlobCache.LocalMachine.GetObject<PrivateScheduleDM>(StorageKeys.UserScheduleID.ToString());
-            return id.ToString();
-        }
-
-
         public void UpdateSessionCacheTime(DateTime time)
         {
-            BlobCache.LocalMachine.Invalidate(StorageKeys.CompleteSchedule.ToString(StorageKeys.LastCacheDate.ToString()));
+            BlobCache.LocalMachine.Invalidate(StorageKeys.LastCacheDate.ToString());
             BlobCache.LocalMachine.InsertObject(StorageKeys.UserSchedule.ToString(), time);
         }
         public DateTime GetSessionsCacheTime()
         {
-            var time = BlobCache.LocalMachine.GetObject<PrivateScheduleDM>(StorageKeys.LastCacheDate.ToString());
+            var time = BlobCache.LocalMachine.GetObject<DateTime>(StorageKeys.LastCacheDate.ToString());
+            var t = time.ToString();
             return DateTime.Now;
         }
     }

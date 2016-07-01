@@ -5,9 +5,11 @@
     "FreshMvvm": "2.1.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "Newtonsoft.Json": "8.0.3",
+    "Splat": "1.6.2",
+    "SQLitePCL.raw_basic": "0.8.6",
     "Xam.Plugin.Connectivity": "2.2.2",
     "Xam.Plugins.Forms.ImageCircle": "1.4.1",
-    "Xamarin.Forms": "2.3.0.49"
+    "Xamarin.Forms": "2.3.0.107"
   },
   "frameworks": {
     "uap10.0": {}
