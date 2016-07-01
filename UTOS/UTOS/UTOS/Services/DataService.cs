@@ -26,10 +26,6 @@ namespace UTOS.Services
                 if (s.type == "Talk")
                     talks.Add(ModelConverters.ConvertTalkToDM(s));
             }
-            storage.UpdateSessionCacheTime(DateTime.Now);
-            storage.GetSessionsCacheTime();
-            //storage.UpdateCachedSessions(talks);
-            //var t = storage.GetCachedSessions();
             return talks;
         }
 
