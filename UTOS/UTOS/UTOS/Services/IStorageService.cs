@@ -15,8 +15,5 @@ namespace UTOS.Services
 
         void UpdatePersonalSchedule(PrivateScheduleDM schedule);
         PrivateScheduleDM GetPersonalSchedule();
-
-        DateTime GetSessionsCacheTime();
-        void UpdateSessionCacheTime(DateTime time);
     }
 }

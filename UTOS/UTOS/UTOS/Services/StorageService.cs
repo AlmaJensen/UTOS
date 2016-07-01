@@ -32,17 +32,5 @@ namespace UTOS.Services
             var schedule = (PrivateScheduleDM)BlobCache.LocalMachine.GetObject<PrivateScheduleDM>(StorageKeys.UserSchedule.ToString());
             return schedule;
         }
-
-        public void UpdateSessionCacheTime(DateTime time)
-        {
-            BlobCache.LocalMachine.Invalidate(StorageKeys.LastCacheDate.ToString());
-            BlobCache.LocalMachine.InsertObject(StorageKeys.UserSchedule.ToString(), time);
-        }
-        public DateTime GetSessionsCacheTime()
-        {
-            var time = BlobCache.LocalMachine.GetObject<DateTime>(StorageKeys.LastCacheDate.ToString());
-            var t = time.ToString();
-            return DateTime.Now;
-        }
     }
 }
