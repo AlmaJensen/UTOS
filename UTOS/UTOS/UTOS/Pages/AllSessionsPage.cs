@@ -12,8 +12,8 @@ namespace UTOS.Pages
 {
     public class AllSessionsPage : ContentPage
     {
-        BindablePicker Day = new BindablePicker();
-        BindablePicker Track = new BindablePicker();
+        BindablePicker Day = new BindablePicker() { Title = "Day" };
+        BindablePicker Track = new BindablePicker() { Title = "Track" };
         SearchBar Search = new SearchBar();
         ListView SessionList = new ListView(ListViewCachingStrategy.RecycleElement)
         {
@@ -25,13 +25,30 @@ namespace UTOS.Pages
             Day.SetBinding(BindablePicker.ItemsSourceProperty, nameof(AllSessionsPageModel.Days));
             Track.SetBinding(BindablePicker.ItemsSourceProperty, nameof(AllSessionsPageModel.Tracks));
 
+            Track.SetBinding(BindablePicker.SelectedItemProperty, nameof(AllSessionsPageModel.SelectedTrack));
+            Day.SetBinding(BindablePicker.SelectedItemProperty, nameof(AllSessionsPageModel.SelectedDay));
+
+            Search.SetBinding(SearchBar.SearchCommandProperty, nameof(AllSessionsPageModel.SearchCommand));
+            Search.SetBinding(SearchBar.TextProperty, nameof(AllSessionsPageModel.SearchText));
+
             SessionList.ItemTemplate = new DataTemplate(typeof(ScheduleItemCell));
             SessionList.SetBinding(ListView.ItemsSourceProperty, nameof(AllSessionsPageModel.Sessions));
             SessionList.SetBinding(ListView.SelectedItemProperty, nameof(AllSessionsPageModel.SelectedEntry));
+
+            var pickerHolder = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+                Children =
+                {
+                    Day, Track
+                }
+            };
+
+
             Content = new StackLayout
             {
                 Children = {
-                    Day, Track, Search, SessionList
+                    pickerHolder, Search, SessionList
                 }
             };
         }
