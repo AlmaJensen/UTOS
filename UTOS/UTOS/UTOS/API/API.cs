@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,10 +38,16 @@ namespace UTOS.API
         }
         protected async Task<Stream> GetHttpResultStream(string url)
         {
-            HttpClient client = new HttpClient();
-            var result = await client.GetAsync(url);
-            if (result.StatusCode == System.Net.HttpStatusCode.OK)
-                return await result.Content.ReadAsStreamAsync();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                HttpClient client = new HttpClient();
+                var result = await client.GetAsync(url);
+                if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                    return await result.Content.ReadAsStreamAsync();
+                else
+                    return null;
+
+            }
             else
                 return null;
         }

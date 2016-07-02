@@ -15,6 +15,8 @@ namespace UTOS
         public App()
         {
             FreshIOC.Container.Register<IDataService, DataService>();
+            FreshIOC.Container.Register<IDataManager, DataManager>();
+
             var masterDetail = new FreshMasterDetailNavigationContainer();
             var detail = FreshPageModelResolver.ResolvePageModel<AllSessionsPageModel>();
             masterDetail.Detail = new FreshNavigationContainer(detail);

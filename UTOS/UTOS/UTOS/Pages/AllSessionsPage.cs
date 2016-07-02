@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FreshEssentials;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
@@ -11,6 +12,9 @@ namespace UTOS.Pages
 {
     public class AllSessionsPage : ContentPage
     {
+        BindablePicker Day = new BindablePicker();
+        BindablePicker Track = new BindablePicker();
+        SearchBar Search = new SearchBar();
         ListView SessionList = new ListView(ListViewCachingStrategy.RecycleElement)
         {
             HasUnevenRows = true,
@@ -24,7 +28,7 @@ namespace UTOS.Pages
             Content = new StackLayout
             {
                 Children = {
-                    SessionList
+                    Day, Track, Search, SessionList
                 }
             };
         }

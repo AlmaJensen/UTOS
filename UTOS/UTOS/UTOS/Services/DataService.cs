@@ -15,7 +15,10 @@ namespace UTOS.Services
         {
             var api = new API.API();
             var sessions =  await api.GetSessions();
-            return ConvertSessions(sessions);
+            if (sessions != null)
+                return ConvertSessions(sessions);
+            else
+                return null;
         }
 
         private IEnumerable<SessionDM> ConvertSessions(IEnumerable<Talk> sessions)

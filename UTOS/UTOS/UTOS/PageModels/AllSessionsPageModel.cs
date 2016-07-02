@@ -10,10 +10,10 @@ namespace UTOS.PageModels
     [ImplementPropertyChanged]
     public class AllSessionsPageModel : FreshBasePageModel
     {
-        public IDataService DataService;
-        public AllSessionsPageModel(IDataService dataService)
+        public IDataManager dataManager;
+        public AllSessionsPageModel(IDataManager dataService)
         {
-            DataService = dataService;
+            dataManager = dataService;
         }
         public override void Init(object initData)
         {
@@ -23,7 +23,7 @@ namespace UTOS.PageModels
 
         private async void LoadCollection()
         {
-            var talks = await DataService.GetSessions();
+            var talks = await dataManager.GetAllSessions();
             Sessions = new ObservableCollection<SessionDM>(talks);
         }
         SessionDM _selectedEntry;
