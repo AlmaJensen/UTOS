@@ -2,5 +2,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.jazzdevstudio.utos" android:versionCode="1" android:versionName="1">
 	<uses-sdk android:minSdkVersion="15" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="OpenWest"></application>
+	<application android:label="OpenWest" android:theme="@style/MyTheme"></application>
 </manifest>

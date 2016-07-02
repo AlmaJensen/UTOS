@@ -7,6 +7,7 @@ using System.Text;
 using UTOS.PageModels;
 using UTOS.Services;
 using Xamarin.Forms;
+using Xamarin.Forms.Themes;
 
 namespace UTOS
 {
@@ -14,6 +15,7 @@ namespace UTOS
     {
         public App()
         {
+            //Resources = new LightThemeResources();
             FreshIOC.Container.Register<IDataService, DataService>();
             FreshIOC.Container.Register<IDataManager, DataManager>();
 

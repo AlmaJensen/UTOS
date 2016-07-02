@@ -9,7 +9,9 @@
     "SQLitePCL.raw_basic": "0.8.6",
     "Xam.Plugin.Connectivity": "2.2.2",
     "Xam.Plugins.Forms.ImageCircle": "1.4.1",
-    "Xamarin.Forms": "2.3.0.107"
+    "Xamarin.Forms": "2.3.0.107",
+    "Xamarin.Forms.Theme.Dark": "1.0.0.43-pre1",
+    "Xamarin.Forms.Theme.Light": "1.0.0.43-pre1"
   },
   "frameworks": {
     "uap10.0": {}

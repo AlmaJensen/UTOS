@@ -1,5 +1,6 @@
 ﻿using UTOS.DataModels;
 using Xamarin.Forms;
+using Xamarin.Forms.Themes;
 
 namespace UTOS.ViewCells
 {
@@ -13,8 +14,8 @@ namespace UTOS.ViewCells
             MainLayout.Children.Add(Track);
             View = MainLayout;
         }
-        Label Description = new Label() { TextColor = Color.Black };
-        Label Track = new Label() { TextColor = Color.Black };
+        Label Description = new Label() {};
+        Label Track = new Label() {};
         StackLayout MainLayout = new StackLayout();
     }
 }

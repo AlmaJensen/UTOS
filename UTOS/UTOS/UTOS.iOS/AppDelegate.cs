@@ -22,6 +22,10 @@ namespace UTOS.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            var x = typeof(Xamarin.Forms.Themes.DarkThemeResources);
+            x = typeof(Xamarin.Forms.Themes.LightThemeResources);
+            x = typeof(Xamarin.Forms.Themes.iOS.UnderlineEffect);
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
