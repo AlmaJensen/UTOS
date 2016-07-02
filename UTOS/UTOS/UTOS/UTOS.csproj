@@ -47,6 +47,7 @@
     <Compile Include="DataModels\PrivateScheduleDM.cs" />
     <Compile Include="DataModels\SessionDM.cs" />
     <Compile Include="DataModels\SpeakerDM.cs" />
+    <Compile Include="Helpers\ScheduleHelper.cs" />
     <Compile Include="PageModels\AboutPageModel.cs" />
     <Compile Include="PageModels\AllSessionsPageModel.cs" />
     <Compile Include="PageModels\MenuPageModel.cs" />

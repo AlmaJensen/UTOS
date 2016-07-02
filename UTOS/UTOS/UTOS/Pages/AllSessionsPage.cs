@@ -22,6 +22,9 @@ namespace UTOS.Pages
         };
         public AllSessionsPage()
         {
+            Day.SetBinding(BindablePicker.ItemsSourceProperty, nameof(AllSessionsPageModel.Days));
+            Track.SetBinding(BindablePicker.ItemsSourceProperty, nameof(AllSessionsPageModel.Tracks));
+
             SessionList.ItemTemplate = new DataTemplate(typeof(ScheduleItemCell));
             SessionList.SetBinding(ListView.ItemsSourceProperty, nameof(AllSessionsPageModel.Sessions));
             SessionList.SetBinding(ListView.SelectedItemProperty, nameof(AllSessionsPageModel.SelectedEntry));
