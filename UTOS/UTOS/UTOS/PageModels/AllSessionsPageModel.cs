@@ -15,7 +15,7 @@ namespace UTOS.PageModels
     [ImplementPropertyChanged]
     public class AllSessionsPageModel : FreshBasePageModel
     {
-        public IDataManager dataManager;
+        private IDataManager dataManager;
         private List<SessionDM> completeList = new List<SessionDM>();
         ScheduleHelper helper = new ScheduleHelper();
 

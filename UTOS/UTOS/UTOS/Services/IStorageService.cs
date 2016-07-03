@@ -12,8 +12,5 @@ namespace UTOS.Services
 
         void UpdateCachedSessions(GeneralScheduleDM sessions);
         GeneralScheduleDM GetCachedSessions();
-
-        void UpdatePersonalSchedule(PrivateScheduleDM schedule);
-        PrivateScheduleDM GetPersonalSchedule();
     }
 }

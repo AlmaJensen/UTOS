@@ -21,16 +21,5 @@ namespace UTOS.Services
             var response = BlobCache.LocalMachine.GetObject<GeneralScheduleDM> (StorageKeys.CompleteSchedule.ToString());
             return response as GeneralScheduleDM;
         }
-
-        public void UpdatePersonalSchedule(PrivateScheduleDM schedule)
-        {
-            BlobCache.LocalMachine.Invalidate(StorageKeys.CompleteSchedule.ToString(StorageKeys.UserSchedule.ToString()));
-            BlobCache.LocalMachine.InsertObject(StorageKeys.UserSchedule.ToString(), schedule);
-        }
-        public PrivateScheduleDM GetPersonalSchedule()
-        {
-            var schedule = (PrivateScheduleDM)BlobCache.LocalMachine.GetObject<PrivateScheduleDM>(StorageKeys.UserSchedule.ToString());
-            return schedule;
-        }
     }
 }

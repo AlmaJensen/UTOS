@@ -44,7 +44,6 @@
     <Compile Include="API\Talk.cs" />
     <Compile Include="App.cs" />
     <Compile Include="DataModels\GeneralScheduleDM.cs" />
-    <Compile Include="DataModels\PrivateScheduleDM.cs" />
     <Compile Include="DataModels\SessionDM.cs" />
     <Compile Include="DataModels\SpeakerDM.cs" />
     <Compile Include="Helpers\ScheduleHelper.cs" />
