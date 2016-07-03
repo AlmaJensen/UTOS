@@ -51,12 +51,14 @@
     <Compile Include="PageModels\AboutPageModel.cs" />
     <Compile Include="PageModels\AllSessionsPageModel.cs" />
     <Compile Include="PageModels\MenuPageModel.cs" />
+    <Compile Include="PageModels\PrivateSchedulePageModel.cs" />
     <Compile Include="PageModels\SponsorsPageModel.cs" />
     <Compile Include="PageModels\TalkDetailPageModel.cs" />
     <Compile Include="PageModels\WebPageModel.cs" />
     <Compile Include="Pages\AboutPage.cs" />
     <Compile Include="Pages\AllSessionsPage.cs" />
     <Compile Include="Pages\MenuPage.cs" />
+    <Compile Include="Pages\PrivateSchedulePage.cs" />
     <Compile Include="Pages\SponsorsPage.cs" />
     <Compile Include="Pages\TalkDetailPage.cs" />
     <Compile Include="Pages\WebPage.cs" />

@@ -11,7 +11,7 @@ namespace UTOS.Helpers
     {
         public IEnumerable<string> GetTracksFromSchedule(IEnumerable<SessionDM> sessions)
         {
-         var tracks = (from s in sessions select s.Track).Distinct();
+            var tracks = (from s in sessions select s.Track).Distinct();
             return tracks;
         }
         public IEnumerable<string> GetDaysFromSchedule(IEnumerable<SessionDM> sessions) =>
@@ -29,13 +29,17 @@ namespace UTOS.Helpers
         {
             var d = day.ToUpper();
             return (from s in sessions
-             where s.Title.ToUpper() == day ||
-             s.Description.ToUpper() == day ||
-             s.Date.ToUpper() == day ||
-             s.Track.ToUpper() == day ||
-             s.Speaker.Name.ToUpper() == day
-             select s);
+                    where s.Title.ToUpper() == day ||
+                    s.Description.ToUpper() == day ||
+                    s.Date.ToUpper() == day ||
+                    s.Track.ToUpper() == day ||
+                    s.Speaker.Name.ToUpper() == day
+                    select s);
         }
-            
+
+        public IEnumerable<SessionDM> SessionInSchedule(IEnumerable<SessionDM> sessions) =>
+   (from s in sessions
+    where s.AddedToWebSchedule == true
+    select s);
     }
 }

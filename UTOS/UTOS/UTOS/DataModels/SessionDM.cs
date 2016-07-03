@@ -15,5 +15,6 @@ namespace UTOS.DataModels
         public SpeakerDM Speaker { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
+        public bool AddedToWebSchedule { get; set; } = false;
     }
 }
