@@ -10,5 +10,6 @@ namespace UTOS.Services
     public interface IDataManager
     {
         Task<IEnumerable<SessionDM>> GetAllSessions();
+        void UpdateSingleSession(SessionDM session);
     }
 }

@@ -22,11 +22,15 @@ namespace UTOS.Pages
         Label TalkTitle = new Label();
         Label Track = new Label();
         Label Description = new Label() { VerticalOptions = LayoutOptions.FillAndExpand };
+        Button AddedToggle = new Button();
         public TalkDetailPage()
         {
             Name.SetBinding(Label.TextProperty, "Speaker.Name");
             TwitterHandle.SetBinding(Label.TextProperty, "Speaker.Twitter");
             Hero.SetBinding(Image.SourceProperty, "Speaker.GravatarImageSource");
+            AddedToggle.SetBinding(Button.TextProperty, nameof(TalkDetailPageModel.AddedToggleText));
+            AddedToggle.SetBinding(Button.CommandProperty, nameof(TalkDetailPageModel.ToggleCommand));
+
             SpeakerInfo.Children.Add(Hero);
             MainLayout.Children.Add(Hero);
             var innerLayout = new StackLayout()
@@ -49,7 +53,7 @@ namespace UTOS.Pages
             Content = new StackLayout
             {
                 Children = {
-                  MainLayout, Time, TalkTitle, Track, descriptionScroll
+                  MainLayout, Time, TalkTitle, Track, descriptionScroll, AddedToggle
                 }  
             };
         }

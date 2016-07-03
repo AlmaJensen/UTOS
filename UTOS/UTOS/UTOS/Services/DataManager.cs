@@ -15,10 +15,10 @@ namespace UTOS.Services
 
         public async Task<IEnumerable<SessionDM>> GetAllSessions()
         {
-            var sessionData = storageService.GetCachedSessions();
+            var sessionData = await storageService.GetCachedSessions();
             if (sessionData?.PlannedSessions != null)
             {
-                if (sessionData.LastCacheDateTime < DateTime.Now.AddHours(-12))
+                //if (sessionData.LastCacheDateTime < DateTime.Now.AddHours(-12))
                     await RefreshCache();
                 return sessionData.PlannedSessions;
             }
@@ -35,7 +35,7 @@ namespace UTOS.Services
             {
                 var dm = new GeneralScheduleDM
                 {
-                    LastCacheDateTime = DateTime.Now,
+                    //LastCacheDateTime = DateTime.Now,
                     PlannedSessions = sessions.ToList()
                 };
                 storageService.UpdateCachedSessions(dm);
@@ -43,9 +43,12 @@ namespace UTOS.Services
             return sessions;
         }
 
-
-        public void AddToPersonalSchedule() { }
-        public void RemoveFromPersonalSchedule() { }
-
+        public async void UpdateSingleSession(SessionDM session)
+        {
+            var generalSchedule = await storageService.GetCachedSessions();
+            var matchingSession = generalSchedule.PlannedSessions.FirstOrDefault(x => x.TalkId == session.TalkId);
+            matchingSession = session;
+            storageService.UpdateCachedSessions(generalSchedule);
+        }
     }
 }

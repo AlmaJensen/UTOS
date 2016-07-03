@@ -34,6 +34,7 @@ namespace UTOS.API
             var speaker = ConvertSpeakerTODM(talk.speakers.First());
             var session = new SessionDM
             {
+                TalkId = talk.talkid,
                 DateAndTime = talk.ts.ToString(),
                 Description = talk.description?.Trim(),
                 Title = talk.title?.Trim(),

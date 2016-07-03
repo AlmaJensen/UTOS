@@ -32,8 +32,7 @@ namespace UTOS
         protected override void OnStart()
         {
             // Handle when your app starts
-            //BlobCache.EnsureInitialized();
-            //BlobCache.ApplicationName = "UTOS";
+            
         }
 
         protected override void OnSleep()

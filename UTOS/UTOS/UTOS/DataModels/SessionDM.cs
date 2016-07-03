@@ -8,6 +8,7 @@ namespace UTOS.DataModels
 {
     public class SessionDM
     {
+        public int TalkId { get; set; }
         public string DateAndTime { get; set; }
         public string Title { get; set; }
         public string Track { get; set; }

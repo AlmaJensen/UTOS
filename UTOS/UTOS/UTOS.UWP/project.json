@@ -1,10 +1,15 @@
 ﻿{
   "dependencies": {
     "akavache": "4.1.2",
+    "akavache.core": "4.1.2",
+    "akavache.sqlite3": "4.1.2",
     "FreshEssentials": "2.0.1",
     "FreshMvvm": "2.1.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "Newtonsoft.Json": "8.0.3",
+    "Rx-Interfaces": "2.2.5",
+    "Rx-Linq": "2.2.5",
+    "Rx-Main": "2.2.5",
     "Splat": "1.6.2",
     "SQLitePCL.raw_basic": "0.8.6",
     "Xam.Plugin.Connectivity": "2.2.2",

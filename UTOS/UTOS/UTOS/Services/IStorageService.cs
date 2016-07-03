@@ -11,6 +11,6 @@ namespace UTOS.Services
     {
 
         void UpdateCachedSessions(GeneralScheduleDM sessions);
-        GeneralScheduleDM GetCachedSessions();
+        Task<GeneralScheduleDM> GetCachedSessions();
     }
 }
