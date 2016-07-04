@@ -16,6 +16,7 @@ namespace UTOS.Pages
         CircleImage Hero = new CircleImage() { Aspect = Aspect.Fill, HeightRequest = 75, WidthRequest = 75, Margin = new Thickness(15) };
         Label Name = new Label() { FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), FontAttributes = FontAttributes.Bold, HorizontalOptions = LayoutOptions.Center };
         Label TwitterHandle = new Label() { FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label))};
+        Button Share = new Button() { Text = "Share" };
         StackLayout SpeakerInfo = new StackLayout() { Orientation = StackOrientation.Horizontal };
 
         Label Time = new Label();
@@ -34,6 +35,7 @@ namespace UTOS.Pages
             Name.SetBinding(Label.TextProperty, "Speaker.Name");
             TwitterHandle.SetBinding(Label.TextProperty, "Speaker.Twitter");
             Hero.SetBinding(Image.SourceProperty, nameof(TalkDetailPageModel.ImageSr));
+            Share.SetBinding(Button.CommandProperty, nameof(TalkDetailPageModel.ShareCommand));
             AddedToggle.SetBinding(Button.TextProperty, nameof(TalkDetailPageModel.AddedToggleText));
             AddedToggle.SetBinding(Button.CommandProperty, nameof(TalkDetailPageModel.ToggleCommand));
 
@@ -43,7 +45,7 @@ namespace UTOS.Pages
             {
                 Children =
                 {
-                    Name, TwitterHandle
+                    Name, TwitterHandle, Share
                 }
             };
             var lowerLayout = new StackLayout()

@@ -1,4 +1,5 @@
 ﻿using FreshMvvm;
+using Plugin.Share;
 using PropertyChanged;
 using System;
 using System.Collections.Generic;
@@ -57,6 +58,15 @@ namespace UTOS.PageModels
             {
                 return new Command((sender) => {
                     ToggleAddedToSchedule();
+                });
+            }
+        }
+        public Command ShareCommand
+        {
+            get
+            {
+                return new Command(async (sender) => {
+                    await CrossShare.Current.Share("OpenWest Conference Session: " + SelectedTalk.Title);
                 });
             }
         }
