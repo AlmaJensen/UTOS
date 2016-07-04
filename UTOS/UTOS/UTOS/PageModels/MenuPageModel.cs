@@ -1,4 +1,5 @@
 ﻿using FreshMvvm;
+using Plugin.ExternalMaps;
 using PropertyChanged;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,17 @@ namespace UTOS.PageModels
     [ImplementPropertyChanged]
     public class MenuPageModel : FreshBasePageModel
     {
+        public Command DirectionsCommand
+        {
+            get
+            {
+                return new Command(async () => 
+                {
+                    await CrossExternalMaps.Current.NavigateTo("South Towne Exposition Center", "9575 state St", "Sandy", "UT", "84070", "USA", "USA");
+                });
+            }
+        }
+
         public Command ScheduleCommand { get { return new Command(async () => { await CoreMethods.PushPageModel<AllSessionsPageModel>(); }); } }
         public Command PrivateScheduleCommand { get { return new Command(async () => { await CoreMethods.PushPageModel<PrivateSchedulePageModel>(); }); } }
         public Command SponsorsCommand { get { return new Command(async () => { await CoreMethods.PushPageModel<SponsorsPageModel>(); }); } }

@@ -10,6 +10,9 @@ namespace UTOS.Pages
 {
     public class MenuPage : ContentPage
     {
+        Label Directions = new Label { Text = "Directions" };
+        TapGestureRecognizer DirectionsCommand = new TapGestureRecognizer();
+
         Label Schedule = new Label { Text = "Schedule" };
         TapGestureRecognizer ScheduleCommand = new TapGestureRecognizer();
 
@@ -36,6 +39,9 @@ namespace UTOS.Pages
 
         public MenuPage()
         {
+            Directions.GestureRecognizers.Add(DirectionsCommand);
+            DirectionsCommand.SetBinding(TapGestureRecognizer.CommandProperty, nameof(MenuPageModel.DirectionsCommand));
+
             Schedule.GestureRecognizers.Add(ScheduleCommand);
             ScheduleCommand.SetBinding(TapGestureRecognizer.CommandProperty, nameof(MenuPageModel.ScheduleCommand));
 
@@ -64,7 +70,7 @@ namespace UTOS.Pages
             {
                 Margin = new Thickness(3),
                 Children = {
-                    Schedule, PrivateSchedule, OpenWest, HackCenter, Twitter, Facebook, About
+                   Directions, Schedule, PrivateSchedule, OpenWest, HackCenter, Twitter, Facebook, About
                 }
             };
         }
