@@ -12,14 +12,20 @@ namespace UTOS.Pages
 {
     public class TalkDetailPage : ContentPage
     {
-        StackLayout MainLayout = new StackLayout() { Orientation = StackOrientation.Horizontal };
-        CircleImage Hero = new CircleImage() { Aspect = Aspect.Fill, HeightRequest = 75, WidthRequest = 75 };
-        Label Name = new Label();
-        Label TwitterHandle = new Label();
+        StackLayout MainLayout = new StackLayout() { Orientation = StackOrientation.Horizontal, Padding = new Thickness(10) };
+        CircleImage Hero = new CircleImage() { Aspect = Aspect.Fill, HeightRequest = 75, WidthRequest = 75, Margin = new Thickness(15) };
+        Label Name = new Label() { FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), FontAttributes = FontAttributes.Bold };
+        Label TwitterHandle = new Label() { FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label))};
         StackLayout SpeakerInfo = new StackLayout() { Orientation = StackOrientation.Horizontal };
 
         Label Time = new Label();
-        Label TalkTitle = new Label();
+        Label TalkTitle = new Label()
+        {
+            FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
+            Margin = new Thickness(5),
+            HorizontalOptions = LayoutOptions.Center,
+            FontAttributes = FontAttributes.Bold
+        };
         Label Track = new Label();
         Label Description = new Label() { VerticalOptions = LayoutOptions.FillAndExpand };
         Button AddedToggle = new Button();
@@ -40,7 +46,17 @@ namespace UTOS.Pages
                     Name, TwitterHandle
                 }
             };
+            var lowerLayout = new StackLayout()
+            {
+                Orientation = StackOrientation.Horizontal,
+                Padding = new Thickness(5),
+                Children =
+                {
+                    Time, Track
+                }
+            };
             MainLayout.Children.Add(innerLayout);
+            MainLayout.Children.Add(lowerLayout);
 
             Time.SetBinding(Label.TextProperty, "SelectedTalk.DateAndTime");
             TalkTitle.SetBinding(Label.TextProperty, "SelectedTalk.Title");
@@ -53,7 +69,7 @@ namespace UTOS.Pages
             Content = new StackLayout
             {
                 Children = {
-                  MainLayout, Time, TalkTitle, Track, descriptionScroll, AddedToggle
+                  TalkTitle, MainLayout, lowerLayout, descriptionScroll, AddedToggle
                 }  
             };
         }
