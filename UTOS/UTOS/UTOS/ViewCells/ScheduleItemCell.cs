@@ -14,8 +14,8 @@ namespace UTOS.ViewCells
             MainLayout.Children.Add(Track);
             View = MainLayout;
         }
-        Label Description = new Label() {};
-        Label Track = new Label() {};
-        StackLayout MainLayout = new StackLayout();
+        Label Description = new Label() { FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)) };
+        Label Track = new Label() { FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)) };
+        StackLayout MainLayout = new StackLayout() { Padding = new Thickness(5) };
     }
 }

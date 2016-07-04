@@ -10,31 +10,38 @@ namespace UTOS.Pages
 {
     public class MenuPage : ContentPage
     {
-        Label Directions = new Label { Text = "Directions" };
+        Image Logo = new Image() { Source = ImageSource.FromResource("UTOS.Images.Logo.gif"), Aspect = Aspect.AspectFit };
+        BoxView TopDivider = new BoxView() { HeightRequest = 2, BackgroundColor = Color.Black };
+
+        Label Directions = new Label { Text = "Directions", Style = (Style)Styles["LabelStyle"] };
         TapGestureRecognizer DirectionsCommand = new TapGestureRecognizer();
 
-        Label Schedule = new Label { Text = "Schedule" };
+        Label Schedule = new Label { Text = "Schedule", Style = (Style)Styles["LabelStyle"] };
         TapGestureRecognizer ScheduleCommand = new TapGestureRecognizer();
 
-        Label PrivateSchedule = new Label { Text = "Personal Schedule" };
+        Label PrivateSchedule = new Label { Text = "Personal Schedule", Style = (Style)Styles["LabelStyle"] };
         TapGestureRecognizer PrivateScheduleCommand = new TapGestureRecognizer();
 
-        Label Sponsors = new Label { Text = "Sponsors" };
+        Label Sponsors = new Label { Text = "Sponsors", Style = (Style)Styles["LabelStyle"] };
         TapGestureRecognizer SponsorsCommand = new TapGestureRecognizer();
-        
-        Label OpenWest = new Label { Text = "Open West" };
+
+        BoxView MidDivider = new BoxView() { HeightRequest = 1, BackgroundColor = Color.Black };
+
+        Label OpenWest = new Label { Text = "Open West", Style = (Style)Styles["LabelStyle"] };
         TapGestureRecognizer OpenWestCommand = new TapGestureRecognizer();
 
-        Label HackCenter = new Label { Text = "Hack Center" };
+        Label HackCenter = new Label { Text = "Hack Center", Style = (Style)Styles["LabelStyle"] };
         TapGestureRecognizer HackCenterCommand = new TapGestureRecognizer();
 
-        Label Twitter = new Label { Text = "Twitter" };
+        Label Twitter = new Label { Text = "Twitter", Style = (Style)Styles["LabelStyle"] };
         TapGestureRecognizer TwitterCommand = new TapGestureRecognizer();
 
-        Label Facebook = new Label { Text = "Facebook" };
+        Label Facebook = new Label { Text = "Facebook", Style = (Style)Styles["LabelStyle"] };
         TapGestureRecognizer FacebookCommand = new TapGestureRecognizer();
 
-        Label About = new Label { Text = "About", VerticalOptions = LayoutOptions.End };
+        BoxView EndSpacer = new BoxView() {BackgroundColor = Color.Transparent, VerticalOptions = LayoutOptions.FillAndExpand };
+
+        Label About = new Label { Text = "About", VerticalOptions = LayoutOptions.End, Style = (Style)Styles["LabelStyle"] };
         TapGestureRecognizer AboutCommand = new TapGestureRecognizer();
 
         public MenuPage()
@@ -70,10 +77,23 @@ namespace UTOS.Pages
             {
                 Margin = new Thickness(3),
                 Children = {
-                   Directions, Schedule, PrivateSchedule, OpenWest, HackCenter, Twitter, Facebook, About
+                    Logo, TopDivider,
+                   Directions, Schedule, PrivateSchedule, MidDivider, OpenWest, HackCenter, Twitter, Facebook, EndSpacer, About
                 }
-            };
+            };            
         }
+
+        static ResourceDictionary Styles = new ResourceDictionary()
+        {
+            ["LabelStyle"] = new Style(typeof(Label))
+            {
+                Setters =
+                    {
+                        new Setter { Property = Label.FontSizeProperty, Value = Device.GetNamedSize(NamedSize.Medium, typeof(Label)) },
+                        new Setter { Property = Label.MarginProperty, Value = new Thickness(5,2,2,2) }
+                    }
+            }
+        };
 
     }
 }

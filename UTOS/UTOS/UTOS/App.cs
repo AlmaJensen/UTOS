@@ -15,7 +15,7 @@ namespace UTOS
     {
         public App()
         {
-            //Resources = new LightThemeResources();
+            
             FreshIOC.Container.Register<IDataService, DataService>();
             FreshIOC.Container.Register<IDataManager, DataManager>();
 
@@ -26,7 +26,6 @@ namespace UTOS
             master.Title = "Hello World";
             masterDetail.Master = master;
             MainPage = masterDetail;
-            
         }
 
         protected override void OnStart()

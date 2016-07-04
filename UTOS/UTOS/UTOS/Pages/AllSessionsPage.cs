@@ -12,13 +12,15 @@ namespace UTOS.Pages
 {
     public class AllSessionsPage : ContentPage
     {
-        BindablePicker Day = new BindablePicker() { Title = "Day" };
-        BindablePicker Track = new BindablePicker() { Title = "Track" };
-        SearchBar Search = new SearchBar();
+        BindablePicker Day = new BindablePicker() { Title = "Day", HorizontalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(5) };
+        BindablePicker Track = new BindablePicker() { Title = "Track", HorizontalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(5) };
+        Button Reset = new Button { Text = "Reset", Margin = new Thickness(5) };
+        SearchBar Search = new SearchBar() { Margin = new Thickness(5) };
         ListView SessionList = new ListView(ListViewCachingStrategy.RecycleElement)
         {
             HasUnevenRows = true,
-            VerticalOptions = LayoutOptions.FillAndExpand
+            VerticalOptions = LayoutOptions.FillAndExpand,
+            IsGroupingEnabled = true,
         };
         public AllSessionsPage()
         {
@@ -32,6 +34,7 @@ namespace UTOS.Pages
             Search.SetBinding(SearchBar.TextProperty, nameof(AllSessionsPageModel.SearchText));
 
             SessionList.ItemTemplate = new DataTemplate(typeof(ScheduleItemCell));
+            //SessionList.GroupHeaderTemplate = new DataTemplate(typeof(GroupingTemplate));
             SessionList.SetBinding(ListView.ItemsSourceProperty, nameof(AllSessionsPageModel.Sessions));
             SessionList.SetBinding(ListView.SelectedItemProperty, nameof(AllSessionsPageModel.SelectedEntry));
 
@@ -40,7 +43,7 @@ namespace UTOS.Pages
                 Orientation = StackOrientation.Horizontal,
                 Children =
                 {
-                    Day, Track
+                    Day, Track, Reset
                 }
             };
 
@@ -48,7 +51,7 @@ namespace UTOS.Pages
             Content = new StackLayout
             {
                 Children = {
-                    pickerHolder, Search, SessionList
+                   Search, pickerHolder, SessionList
                 }
             };
         }
