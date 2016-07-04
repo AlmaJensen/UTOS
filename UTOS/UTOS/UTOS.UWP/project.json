@@ -17,6 +17,7 @@
     "Xam.Plugin.ExternalMaps": "3.0.0",
     "Xam.Plugins.Forms.ImageCircle": "1.4.1",
     "Xamarin.Forms": "2.3.0.107",
+    "Xamarin.Forms.Theme.Base": "1.0.0.43-pre1",
     "Xamarin.Forms.Theme.Dark": "1.0.0.43-pre1",
     "Xamarin.Forms.Theme.Light": "1.0.0.43-pre1"
   },
