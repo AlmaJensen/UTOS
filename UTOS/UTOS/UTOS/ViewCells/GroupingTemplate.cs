@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UTOS.DataModels;
 using Xamarin.Forms;
 
 namespace UTOS.ViewCells
