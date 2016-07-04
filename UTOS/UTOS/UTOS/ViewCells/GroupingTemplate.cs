@@ -10,7 +10,12 @@ namespace UTOS.ViewCells
 {
     public class GroupingTemplate : ViewCell
     {
-        Label Title = new Label() { FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)), Margin = new Thickness(10) };
+        Label Title = new Label()
+        {
+            FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)), Margin = new Thickness(10),
+            HorizontalOptions = LayoutOptions.Center,
+            FontAttributes = FontAttributes.Bold
+        };
 
         public GroupingTemplate()
         {

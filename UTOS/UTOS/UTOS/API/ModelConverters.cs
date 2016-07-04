@@ -35,7 +35,7 @@ namespace UTOS.API
             var session = new SessionDM
             {
                 TalkId = talk.talkid,
-                DateAndTime = talk.ts.ToString(),
+                DateAndTime = talk.ts.ToString("ddd, H:mm"),
                 Description = talk.description?.Trim(),
                 Title = talk.title?.Trim(),
                 Speaker = speaker,

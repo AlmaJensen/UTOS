@@ -15,12 +15,12 @@ namespace UTOS.Pages
         BindablePicker Day = new BindablePicker() { Title = "Day", HorizontalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(5) };
         BindablePicker Track = new BindablePicker() { Title = "Track", HorizontalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(5) };
         Button Reset = new Button { Text = "Reset", Margin = new Thickness(5) };
-        SearchBar Search = new SearchBar() { Margin = new Thickness(5) };
+        SearchBar Search = new SearchBar() { Margin = new Thickness(5), HorizontalOptions = LayoutOptions.FillAndExpand};
         ListView SessionList = new ListView(ListViewCachingStrategy.RecycleElement)
         {
             HasUnevenRows = true,
             VerticalOptions = LayoutOptions.FillAndExpand,
-            //IsGroupingEnabled = true,
+            IsGroupingEnabled = true,
         };
         public AllSessionsPage()
         {
@@ -30,11 +30,13 @@ namespace UTOS.Pages
             Track.SetBinding(BindablePicker.SelectedItemProperty, nameof(AllSessionsPageModel.SelectedTrack));
             Day.SetBinding(BindablePicker.SelectedItemProperty, nameof(AllSessionsPageModel.SelectedDay));
 
+            Reset.SetBinding(Button.CommandProperty, nameof(AllSessionsPageModel.ResetCommand));
+
             Search.SetBinding(SearchBar.SearchCommandProperty, nameof(AllSessionsPageModel.SearchCommand));
             Search.SetBinding(SearchBar.TextProperty, nameof(AllSessionsPageModel.SearchText));
 
             SessionList.ItemTemplate = new DataTemplate(typeof(ScheduleItemCell));
-            //SessionList.GroupHeaderTemplate = new DataTemplate(typeof(GroupingTemplate));
+            SessionList.GroupHeaderTemplate = new DataTemplate(typeof(GroupingTemplate));
             SessionList.SetBinding(ListView.ItemsSourceProperty, nameof(AllSessionsPageModel.Sessions));
             SessionList.SetBinding(ListView.SelectedItemProperty, nameof(AllSessionsPageModel.SelectedEntry));
 
@@ -43,7 +45,15 @@ namespace UTOS.Pages
                 Orientation = StackOrientation.Horizontal,
                 Children =
                 {
-                    Day, Track, Reset
+                    Day, Track,
+                }
+            };
+            var searchHolder = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+                Children =
+                {
+                    Search, Reset
                 }
             };
 
@@ -51,7 +61,7 @@ namespace UTOS.Pages
             Content = new StackLayout
             {
                 Children = {
-                   Search, pickerHolder, SessionList
+                   searchHolder, pickerHolder, SessionList
                 }
             };
         }
