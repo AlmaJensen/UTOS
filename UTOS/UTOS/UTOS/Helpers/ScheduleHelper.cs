@@ -39,7 +39,7 @@ namespace UTOS.Helpers
 
         public IEnumerable<SessionDM> SessionInSchedule(IEnumerable<SessionDM> sessions) =>
    (from s in sessions
-    where s.AddedToWebSchedule == true
+    where s.AddedToSchedule == true
     select s);
     }
 }

@@ -12,6 +12,6 @@ namespace UTOS.DataModels
         public string Name { get; set; }
         public string Twitter { get; set; }
         public string GravatarImageString { get; set; }
-        public ImageSource GravatarImageSource { get; set; }
+        //public ImageSource GravatarImageSource { get; set; }
     }
 }

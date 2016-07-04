@@ -24,6 +24,8 @@ namespace UTOS.PageModels
         private string add = "Add to Schedule";
         private string remove = "Remove from Schedule";
 
+        public ImageSource ImageSr { get; set; }
+
         public TalkDetailPageModel(IDataManager dataService)
         {
             dataManager = dataService;
@@ -39,11 +41,13 @@ namespace UTOS.PageModels
             else
                 Speaker = SelectedTalk.Speaker;
 
-            if (SelectedTalk.AddedToWebSchedule)
+            if (SelectedTalk.AddedToSchedule)
                 AddedToggleText = remove;
             else
                 AddedToggleText = add;
-                
+
+            ImageSr = ImageSource.FromUri(new Uri(Speaker.GravatarImageString));
+
         }
         public Command ToggleCommand
         {
@@ -57,15 +61,15 @@ namespace UTOS.PageModels
 
         private void ToggleAddedToSchedule()
         {
-            if (SelectedTalk.AddedToWebSchedule)
+            if (SelectedTalk.AddedToSchedule)
             {
-                AddedToggleText = remove;
-                SelectedTalk.AddedToWebSchedule = false;
+                AddedToggleText = add;
+                SelectedTalk.AddedToSchedule = false;
             }
             else
             {
-                AddedToggleText = add;
-                SelectedTalk.AddedToWebSchedule = true;
+                AddedToggleText = remove;
+                SelectedTalk.AddedToSchedule = true;
             }
             dataManager.UpdateSingleSession(SelectedTalk);
         }

@@ -23,7 +23,7 @@ namespace UTOS.API
             {
                 imageURI = Resources.GravatarBaseURL + speaker.gravatar_hash.Trim() + Resources.GravatarEnding;
                 speakerdm.GravatarImageString = imageURI;
-                speakerdm.GravatarImageSource = ImageSource.FromUri(new Uri(imageURI));
+                //speakerdm.GravatarImageSource = ImageSource.FromUri(new Uri(imageURI));
             }
 
             return speakerdm;

@@ -27,7 +27,7 @@ namespace UTOS.Pages
         {
             Name.SetBinding(Label.TextProperty, "Speaker.Name");
             TwitterHandle.SetBinding(Label.TextProperty, "Speaker.Twitter");
-            Hero.SetBinding(Image.SourceProperty, "Speaker.GravatarImageSource");
+            Hero.SetBinding(Image.SourceProperty, nameof(TalkDetailPageModel.ImageSr));
             AddedToggle.SetBinding(Button.TextProperty, nameof(TalkDetailPageModel.AddedToggleText));
             AddedToggle.SetBinding(Button.CommandProperty, nameof(TalkDetailPageModel.ToggleCommand));
 

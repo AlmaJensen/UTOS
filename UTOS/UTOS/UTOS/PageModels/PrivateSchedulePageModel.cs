@@ -19,7 +19,7 @@ namespace UTOS.PageModels
         private IDataManager dataManager;
         ScheduleHelper helper = new ScheduleHelper();
         public ObservableCollection<SessionDM> Sessions { get; set; } = new ObservableCollection<SessionDM>();
-        PrivateSchedulePageModel(IDataManager dataService)
+        public PrivateSchedulePageModel(IDataManager dataService)
         {
             dataManager = dataService;
         }

@@ -28,15 +28,12 @@ namespace UTOS.Services
         {
             try
             {
-                var keys = await BlobCache.LocalMachine.GetAllKeys();
-                foreach (var k in keys)
-                    Debug.WriteLine(k);
-                var objs = await BlobCache.LocalMachine.GetAllObjects<Object>();
                 var response = await BlobCache.LocalMachine.GetObject<GeneralScheduleDM>(StorageKeys.CompleteSchedule.ToString());
                 return response;
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 return null;
             }
             
