@@ -17,10 +17,11 @@ namespace UTOS.Pages
         Button Reset = new Button { Text = "Reset", Margin = new Thickness(5) };
         SearchBar Search = new SearchBar() { Margin = new Thickness(5), HorizontalOptions = LayoutOptions.FillAndExpand};
         ListView SessionList = new ListView(ListViewCachingStrategy.RecycleElement)
-        {
+        {            
             HasUnevenRows = true,
             VerticalOptions = LayoutOptions.FillAndExpand,
             IsGroupingEnabled = true,
+            SeparatorVisibility = SeparatorVisibility.None,
         };
         public AllSessionsPage()
         {
@@ -57,13 +58,15 @@ namespace UTOS.Pages
                 }
             };
 
-
-            Content = new StackLayout
+            var mainLayout = new StackLayout
             {
+                BackgroundColor = Color.FromHex("EFEFEF"),
                 Children = {
                    searchHolder, pickerHolder, SessionList
                 }
             };
+
+            Content = mainLayout;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace UTOS.Pages
     {
         StackLayout MainLayout = new StackLayout() { Orientation = StackOrientation.Horizontal, Padding = new Thickness(10) };
         CircleImage Hero = new CircleImage() { Aspect = Aspect.Fill, HeightRequest = 75, WidthRequest = 75, Margin = new Thickness(15) };
-        Label Name = new Label() { FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), FontAttributes = FontAttributes.Bold };
+        Label Name = new Label() { FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), FontAttributes = FontAttributes.Bold, HorizontalOptions = LayoutOptions.Center };
         Label TwitterHandle = new Label() { FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label))};
         StackLayout SpeakerInfo = new StackLayout() { Orientation = StackOrientation.Horizontal };
 
@@ -27,7 +27,7 @@ namespace UTOS.Pages
             FontAttributes = FontAttributes.Bold
         };
         Label Track = new Label();
-        Label Description = new Label() { VerticalOptions = LayoutOptions.FillAndExpand };
+        Label Description = new Label() { VerticalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(5) };
         Button AddedToggle = new Button();
         public TalkDetailPage()
         {

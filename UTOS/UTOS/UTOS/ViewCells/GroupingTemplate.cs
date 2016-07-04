@@ -22,6 +22,7 @@ namespace UTOS.ViewCells
             Title.SetBinding(Label.TextProperty, nameof(GroupingModel.DisplayDate));
             View = new StackLayout
             {
+                BackgroundColor = Color.FromHex("686868"),
                 Children = {
                     Title
                 }

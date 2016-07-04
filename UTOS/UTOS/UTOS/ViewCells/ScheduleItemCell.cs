@@ -16,6 +16,6 @@ namespace UTOS.ViewCells
         }
         Label Description = new Label() { FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)) };
         Label Track = new Label() { FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)) };
-        StackLayout MainLayout = new StackLayout() { Padding = new Thickness(5) };
+        StackLayout MainLayout = new StackLayout() { Padding = new Thickness(5), BackgroundColor = Color.White, Margin = new Thickness(2) };
     }
 }
