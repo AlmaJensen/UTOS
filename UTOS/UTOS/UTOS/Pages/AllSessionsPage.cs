@@ -20,7 +20,7 @@ namespace UTOS.Pages
         {
             HasUnevenRows = true,
             VerticalOptions = LayoutOptions.FillAndExpand,
-            IsGroupingEnabled = true,
+            //IsGroupingEnabled = true,
         };
         public AllSessionsPage()
         {
