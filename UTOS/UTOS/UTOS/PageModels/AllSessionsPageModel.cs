@@ -58,8 +58,6 @@ namespace UTOS.PageModels
             var sorted = helper.SessionGrooper(sessions);
             foreach (var s in sorted)
                 Sessions.Add(s);
-            //foreach (var s in sessions)
-            //    Sessions.Add(s);
         }
 
         public AllSessionsPageModel(IDataManager dataService)
@@ -76,8 +74,6 @@ namespace UTOS.PageModels
         private async void LoadCollection()
         {
             var talks = await dataManager.GetAllSessions();
-            //Sessions = new ObservableCollection<SessionDM>(talks);
-            //Sessions = new ObservableCollection<GroupingModel>(talks);
             Sessions = new ObservableCollection<GroupingModel>(helper.SessionGrooper(talks));
             completeList = talks.ToList();
             Days = helper.GetDaysFromSchedule(talks).ToList();
@@ -131,12 +127,9 @@ namespace UTOS.PageModels
                     var sorted = helper.SessionGrooper(completeList);
                     foreach (var s in sorted)
                         Sessions.Add(s);
-                    //foreach (var s in completeList)
-                    //    Sessions.Add(s);
                 });
             }
         }
         public ObservableCollection<GroupingModel> Sessions { get; set; } = new ObservableCollection<GroupingModel>();
-        //public ObservableCollection<SessionDM> Sessions { get; set; } = new ObservableCollection<SessionDM>();
     }
 }

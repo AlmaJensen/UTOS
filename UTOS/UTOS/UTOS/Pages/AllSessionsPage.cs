@@ -15,7 +15,7 @@ namespace UTOS.Pages
         BindablePicker Day = new BindablePicker() { Title = "Day", HorizontalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(5) };
         BindablePicker Track = new BindablePicker() { Title = "Track", HorizontalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(5) };
         Button Reset = new Button { Text = "Reset", Margin = new Thickness(5) };
-        SearchBar Search = new SearchBar() { Margin = new Thickness(5), HorizontalOptions = LayoutOptions.FillAndExpand};
+        SearchBar Search = new SearchBar() { Margin = new Thickness(5), HorizontalOptions = LayoutOptions.StartAndExpand};
         ListView SessionList = new ListView(ListViewCachingStrategy.RecycleElement)
         {            
             HasUnevenRows = true,

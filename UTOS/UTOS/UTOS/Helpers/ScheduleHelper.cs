@@ -32,11 +32,11 @@ namespace UTOS.Helpers
         {
             var d = searchValue.ToUpper();
             return (from s in sessions
-                    where s.Title.ToUpper().Contains(searchValue) ||
-                    s.Description.ToUpper().Contains(searchValue) ||
-                    s.Date.ToUpper().Contains(searchValue) ||
-                    s.Track.ToUpper().Contains(searchValue) ||
-                    s.Speaker.Name.ToUpper().Contains(searchValue)
+                    where s.Title.ToUpper().Contains(d) ||
+                    s.Description.ToUpper().Contains(d) ||
+                    s.Date.ToUpper().Contains(d) ||
+                    s.Track.ToUpper().Contains(d) ||
+                    s.Speaker.Name.ToUpper().Contains(d)
                     select s);
         }
 
