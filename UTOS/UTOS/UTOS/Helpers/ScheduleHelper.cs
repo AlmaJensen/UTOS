@@ -28,15 +28,15 @@ namespace UTOS.Helpers
             (from s in sessions
              where s.Date == day
              select s);
-        public IEnumerable<SessionDM> FilterSessionsBySearch(string day, IEnumerable<SessionDM> sessions)
+        public IEnumerable<SessionDM> FilterSessionsBySearch(string searchValue, IEnumerable<SessionDM> sessions)
         {
-            var d = day.ToUpper();
+            var d = searchValue.ToUpper();
             return (from s in sessions
-                    where s.Title.ToUpper() == day ||
-                    s.Description.ToUpper() == day ||
-                    s.Date.ToUpper() == day ||
-                    s.Track.ToUpper() == day ||
-                    s.Speaker.Name.ToUpper() == day
+                    where s.Title.ToUpper().Contains(searchValue) ||
+                    s.Description.ToUpper().Contains(searchValue) ||
+                    s.Date.ToUpper().Contains(searchValue) ||
+                    s.Track.ToUpper().Contains(searchValue) ||
+                    s.Speaker.Name.ToUpper().Contains(searchValue)
                     select s);
         }
 
