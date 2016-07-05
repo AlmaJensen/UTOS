@@ -15,7 +15,7 @@ namespace UTOS.Pages
         BindablePicker Day = new BindablePicker() { Title = "Day", HorizontalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(5) };
         BindablePicker Track = new BindablePicker() { Title = "Track", HorizontalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(5) };
         Button Reset = new Button { Text = "Reset", Margin = new Thickness(5) };
-        SearchBar Search = new SearchBar() { Margin = new Thickness(5), HorizontalOptions = LayoutOptions.StartAndExpand};
+        SearchBar Search = new SearchBar() { Margin = new Thickness(5), HorizontalOptions = LayoutOptions.FillAndExpand};
         ListView SessionList = new ListView(ListViewCachingStrategy.RecycleElement)
         {            
             HasUnevenRows = true,
@@ -23,8 +23,23 @@ namespace UTOS.Pages
             IsGroupingEnabled = true,
             SeparatorVisibility = SeparatorVisibility.None,
         };
+        Grid searchGrid = new Grid
+        {
+            VerticalOptions = LayoutOptions.FillAndExpand,
+            RowDefinitions =
+                {
+                    new RowDefinition { Height = GridLength.Auto },
+                },
+            ColumnDefinitions =
+                {
+                    new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+                    new ColumnDefinition { Width = GridLength.Auto },
+                }
+        };
         public AllSessionsPage()
         {
+            searchGrid.Children.Add(Search, 0, 0);
+            searchGrid.Children.Add(Reset, 1, 0);
             Day.SetBinding(BindablePicker.ItemsSourceProperty, nameof(AllSessionsPageModel.Days));
             Track.SetBinding(BindablePicker.ItemsSourceProperty, nameof(AllSessionsPageModel.Tracks));
 
@@ -49,20 +64,20 @@ namespace UTOS.Pages
                     Day, Track,
                 }
             };
-            var searchHolder = new StackLayout
-            {
-                Orientation = StackOrientation.Horizontal,
-                Children =
-                {
-                    Search, Reset
-                }
-            };
+            //var searchHolder = new StackLayout
+            //{
+            //    Orientation = StackOrientation.Horizontal,
+            //    Children =
+            //    {
+            //        Search, Reset
+            //    }
+            //};
 
             var mainLayout = new StackLayout
             {
                 BackgroundColor = Color.FromHex("EFEFEF"),
                 Children = {
-                   searchHolder, pickerHolder, SessionList
+                   searchGrid, pickerHolder, SessionList
                 }
             };
 
