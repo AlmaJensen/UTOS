@@ -19,7 +19,7 @@ namespace UTOS.Services
             if (sessionData?.PlannedSessions != null)
             {
                 if (sessionData.LastCacheDateTime < DateTime.Now.AddHours(-12))
-                    await RefreshCache();
+                    await RefreshCache(sessionData);
                 return sessionData.PlannedSessions;
             }
             else
@@ -28,11 +28,19 @@ namespace UTOS.Services
             }
         }
 
-        private async Task<IEnumerable<SessionDM>> RefreshCache()
+        private async Task<IEnumerable<SessionDM>> RefreshCache(GeneralScheduleDM cachedSessions = null)
         {
             var sessions = await dataService.GetSessions();
             if(sessions != null)
             {
+                if(cachedSessions.PlannedSessions != null)
+                {
+                    foreach(var s in sessions)
+                    {
+                        var matching = cachedSessions.PlannedSessions.Find(x => x.TalkId == s.TalkId);
+                        s.AddedToSchedule = matching.AddedToSchedule;
+                    }
+                }
                 var dm = new GeneralScheduleDM
                 {
                     LastCacheDateTime = DateTime.Now,
@@ -49,8 +57,6 @@ namespace UTOS.Services
             foreach (var s in generalSchedule.PlannedSessions)
                 if (s.TalkId == session.TalkId)
                     s.AddedToSchedule = session.AddedToSchedule;
-            //var matchingSession = generalSchedule.PlannedSessions.FirstOrDefault(x => x.TalkId == session.TalkId);
-            //matchingSession = session;
             storageService.UpdateCachedSessions(generalSchedule);
         }
     }
