@@ -33,7 +33,7 @@ namespace UTOS.Services
             var sessions = await dataService.GetSessions();
             if(sessions != null)
             {
-                if(cachedSessions.PlannedSessions != null)
+                if(cachedSessions?.PlannedSessions != null)
                 {
                     foreach(var s in sessions)
                     {
