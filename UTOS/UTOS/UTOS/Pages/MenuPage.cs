@@ -73,14 +73,27 @@ namespace UTOS.Pages
             HackCenter.GestureRecognizers.Add(HackCenterCommand);
             HackCenterCommand.SetBinding(TapGestureRecognizer.CommandProperty, nameof(MenuPageModel.HackCenterCommand));
 
-            Content = new StackLayout
+            var mainLayout = new StackLayout
             {
+                BackgroundColor = Color.White,
                 Margin = new Thickness(3),
                 Children = {
                     Logo, TopDivider,
                    Directions, Schedule, PrivateSchedule, MidDivider, OpenWest, HackCenter, Twitter, Facebook, EndSpacer, About
                 }
-            };            
+            };
+
+            if(Device.OS == TargetPlatform.Android)
+            {
+                mainLayout.Padding = new Thickness(0, 20, 0, 0);
+                Logo.MinimumHeightRequest = 80;
+            }
+            if (Device.OS == TargetPlatform.iOS)
+            {
+                mainLayout.Padding = new Thickness(0, 15, 0, 0);
+            }
+
+            Content = mainLayout;             
         }
 
         static ResourceDictionary Styles = new ResourceDictionary()
