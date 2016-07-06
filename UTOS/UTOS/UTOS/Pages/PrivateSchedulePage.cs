@@ -22,6 +22,7 @@ namespace UTOS.Pages
             SessionList.SetBinding(ListView.ItemsSourceProperty, nameof(PrivateSchedulePageModel.Sessions));
             SessionList.SetBinding(ListView.SelectedItemProperty, nameof(PrivateSchedulePageModel.SelectedEntry));
 
+            SessionList.ItemTapped += SessionList_ItemTapped;
 
             Content = new StackLayout
             {
@@ -29,6 +30,10 @@ namespace UTOS.Pages
                     SessionList
                 }
             };
+        }
+        private void SessionList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            SessionList.SelectedItem = null;
         }
     }
 }

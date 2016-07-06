@@ -56,6 +56,8 @@ namespace UTOS.Pages
             SessionList.SetBinding(ListView.ItemsSourceProperty, nameof(AllSessionsPageModel.Sessions));
             SessionList.SetBinding(ListView.SelectedItemProperty, nameof(AllSessionsPageModel.SelectedEntry));
 
+            SessionList.ItemTapped += SessionList_ItemTapped;
+
             var pickerHolder = new StackLayout
             {
                 Orientation = StackOrientation.Horizontal,
@@ -64,14 +66,6 @@ namespace UTOS.Pages
                     Day, Track,
                 }
             };
-            //var searchHolder = new StackLayout
-            //{
-            //    Orientation = StackOrientation.Horizontal,
-            //    Children =
-            //    {
-            //        Search, Reset
-            //    }
-            //};
 
             var mainLayout = new StackLayout
             {
@@ -82,6 +76,11 @@ namespace UTOS.Pages
             };
 
             Content = mainLayout;
+        }
+
+        private void SessionList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            SessionList.SelectedItem = null;
         }
     }
 }

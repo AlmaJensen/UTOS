@@ -10,11 +10,12 @@ using UTOS.Helpers;
 using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.ComponentModel;
 
 namespace UTOS.PageModels
 {
     [ImplementPropertyChanged]
-    public class AllSessionsPageModel : FreshBasePageModel
+    public class AllSessionsPageModel : FreshBasePageModel, INotifyPropertyChanged
     {
         private IDataManager dataManager;
         private List<SessionDM> completeList = new List<SessionDM>();
@@ -92,6 +93,7 @@ namespace UTOS.PageModels
                 _selectedEntry = value;
                 if (value != null)
                     EntrySelected.Execute(value);
+                _selectedEntry = null;
             }
         }
 
