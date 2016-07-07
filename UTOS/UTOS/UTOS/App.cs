@@ -23,7 +23,7 @@ namespace UTOS
             var detail = FreshPageModelResolver.ResolvePageModel<AllSessionsPageModel>();
             masterDetail.Detail = new FreshNavigationContainer(detail);
             var master = FreshPageModelResolver.ResolvePageModel<MenuPageModel>();
-            master.Title = "Hello World";
+            master.Title = "UTOS";
             masterDetail.Master = master;
             MainPage = masterDetail;
         }

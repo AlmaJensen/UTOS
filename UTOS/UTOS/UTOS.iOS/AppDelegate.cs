@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using ImageCircle.Forms.Plugin.iOS;
 
 namespace UTOS.iOS
 {
@@ -27,6 +28,9 @@ namespace UTOS.iOS
             x = typeof(Xamarin.Forms.Themes.iOS.UnderlineEffect);
 
             global::Xamarin.Forms.Forms.Init();
+
+            ImageCircleRenderer.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
