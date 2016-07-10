@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.jazzdevstudio.utos" android:versionCode="1" android:versionName="1">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="com.jazzdevstudio.conferencedemo" android:versionCode="1" android:versionName="1">
 	<uses-sdk android:minSdkVersion="15" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="OpenWest 2016" android:theme="@style/MyTheme" android:icon="@drawable/icon"></application>
+	<application android:theme="@style/MyTheme" android:icon="@drawable/icon" android:label="Conference Demo"></application>
 </manifest>

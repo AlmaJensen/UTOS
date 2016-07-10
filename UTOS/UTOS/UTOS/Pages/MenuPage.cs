@@ -10,7 +10,7 @@ namespace UTOS.Pages
 {
     public class MenuPage : ContentPage
     {
-        Image Logo = new Image() { Source = ImageSource.FromResource("UTOS.Images.Logo.gif"), Aspect = Aspect.AspectFit };
+        Label Logo = new Label() { Text = "Open Demo App", TextColor = Color.Black, FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)), FontAttributes = FontAttributes.Bold };
         BoxView TopDivider = new BoxView() { HeightRequest = 2, BackgroundColor = Color.Black };
 
         Label Directions = new Label { Text = "Directions", Style = (Style)Styles["LabelStyle"] };
