@@ -57,5 +57,46 @@ namespace UTOS.Helpers
             }
             return sorted;
         }
+
+        public IEnumerable<SpeakerGroupingModel> SpeakerGrouper(IEnumerable<SessionDM> sessions)
+        {
+            var sorted = new List<SpeakerGroupingModel>();
+            foreach(var s in sessions)
+            {
+                var initial = GetInitial(s.Speaker.Name).ToUpper();
+                var group = sorted.FindIndex(x => x.GroupName == initial);
+                if( group != -1)
+                {
+                    var i = sorted[group].ToList().FindIndex(x => x.Name == s.Speaker.Name);
+                    if( i == -1)
+                        sorted[group].Add(s.Speaker);
+                }
+                else
+                {
+                    var model = new SpeakerGroupingModel
+                    {
+                        GroupName = initial,
+                        ShortName = initial,
+                    };
+                    model.Add(s.Speaker);
+                    sorted.Add(model);
+                }
+            }
+            sorted = sorted.OrderBy(x => x.GroupName).ToList();
+            foreach (var s in sorted)
+            {
+                var sort = s.OrderBy(x => x.Name).ToList();
+                s.Clear();
+                foreach (var sr in sort)
+                    s.Add(sr);
+            }
+            return sorted;    
+        }
+
+        private string GetInitial(string name)
+        {
+            var index = name.LastIndexOf(' ');
+            return name[index + 1].ToString();
+        }
     }   
 }

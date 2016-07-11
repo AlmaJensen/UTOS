@@ -45,6 +45,11 @@
     <Compile Include="App.cs" />
     <Compile Include="DataModels\GeneralScheduleDM.cs" />
     <Compile Include="DataModels\GroupingModel.cs" />
+    <Compile Include="DataModels\SpeakerGroupingModel.cs" />
+    <Compile Include="PageModels\SpeakerDetailPageModel.cs" />
+    <Compile Include="PageModels\SpeakersPageModel.cs" />
+    <Compile Include="Pages\SpeakerDetailPage.cs" />
+    <Compile Include="Pages\SpeakersPage.cs" />
     <Compile Include="ViewCells\GroupingTemplate.cs" />
     <Compile Include="DataModels\SessionDM.cs" />
     <Compile Include="DataModels\SpeakerDM.cs" />
@@ -72,7 +77,9 @@
     <Compile Include="Services\IStorageService.cs" />
     <Compile Include="Services\StorageService.cs" />
     <Compile Include="ViewCells\ScheduleItemCell.cs" />
+    <Compile Include="ViewCells\SpeakerCell.cs" />
     <Compile Include="ViewCells\SpeakerDetail.cs" />
+    <Compile Include="ViewCells\SpeakerGroupingTemplate.cs" />
     <Compile Include="ViewCells\SponsorViewCell.cs" />
   </ItemGroup>
   <ItemGroup>

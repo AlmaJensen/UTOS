@@ -27,6 +27,7 @@ namespace UTOS.PageModels
 
         public Command ScheduleCommand { get { return new Command(async () => { await CoreMethods.PushPageModel<AllSessionsPageModel>(); }); } }
         public Command PrivateScheduleCommand { get { return new Command(async () => { await CoreMethods.PushPageModel<PrivateSchedulePageModel>(); }); } }
+        public Command SpeakerCommand { get { return new Command(async () => { await CoreMethods.PushPageModel<SpeakersPageModel>(); }); } }
         public Command SponsorsCommand { get { return new Command(async () => { await CoreMethods.PushPageModel<SponsorsPageModel>(); }); } }
         public Command AboutCommand { get { return new Command(async () => { await CoreMethods.PushPageModel<AboutPageModel>(); }); } }
         public Command OpenWestCommand { get { return new Command(async () => { await CoreMethods.PushPageModel<WebPageModel>(Resources.OpenWestURL); }); } }

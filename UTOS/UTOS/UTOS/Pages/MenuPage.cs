@@ -22,6 +22,9 @@ namespace UTOS.Pages
         Label PrivateSchedule = new Label { Text = "Personal Schedule", Style = (Style)Styles["LabelStyle"] };
         TapGestureRecognizer PrivateScheduleCommand = new TapGestureRecognizer();
 
+        Label Speaker = new Label { Text = "Speakers", Style = (Style)Styles["LabelStyle"] };
+        TapGestureRecognizer SpeakerCommand = new TapGestureRecognizer();
+
         Label Sponsors = new Label { Text = "Sponsors", Style = (Style)Styles["LabelStyle"] };
         TapGestureRecognizer SponsorsCommand = new TapGestureRecognizer();
 
@@ -55,6 +58,9 @@ namespace UTOS.Pages
             PrivateSchedule.GestureRecognizers.Add(PrivateScheduleCommand);
             PrivateScheduleCommand.SetBinding(TapGestureRecognizer.CommandProperty, nameof(MenuPageModel.PrivateScheduleCommand));
 
+            Speaker.GestureRecognizers.Add(SpeakerCommand);
+            SpeakerCommand.SetBinding(TapGestureRecognizer.CommandProperty, nameof(MenuPageModel.SpeakerCommand));
+
             Sponsors.GestureRecognizers.Add(SponsorsCommand);
             SponsorsCommand.SetBinding(TapGestureRecognizer.CommandProperty, nameof(MenuPageModel.SponsorsCommand));
 
@@ -79,7 +85,7 @@ namespace UTOS.Pages
                 Margin = new Thickness(3),
                 Children = {
                     Logo, TopDivider,
-                   Directions, Schedule, PrivateSchedule, MidDivider, OpenWest, HackCenter, Twitter, Facebook, EndSpacer, About
+                   Directions, Schedule, PrivateSchedule, Speaker, MidDivider, OpenWest, HackCenter, Twitter, Facebook, EndSpacer, About
                 }
             };
 
