@@ -9,7 +9,6 @@ namespace UTOS.Helpers
 {
     public class ScheduleHelper
     {
-        //private string dateFormat = "ddd, H:mm";
         public IEnumerable<string> GetTracksFromSchedule(IEnumerable<SessionDM> sessions)
         {
             var tracks = (from s in sessions select s.Track).Distinct();
