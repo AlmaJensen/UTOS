@@ -98,5 +98,10 @@ namespace UTOS.Helpers
             var index = name.LastIndexOf(' ');
             return name[index + 1].ToString();
         }
+
+        public IEnumerable<SessionDM> GetSessionsBySpeaker(IEnumerable<SessionDM> sessions, string speakerName) =>
+             from s in sessions
+             where s.Speaker.Name.ToUpper() == speakerName.ToUpper()
+             select s;
     }   
 }

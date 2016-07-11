@@ -21,6 +21,7 @@ namespace UTOS
         public const string OpenWestURL = "https://www.openwest.org/";
         public const string HackCenter = "https://www.openwest.org/hackcenter/";
         public const string SourceCode = "https://github.com/AlmaJensen/UTOS";
+        public const string DefaultGravitarImage = "https://www.gravatar.com/avatar/19e7872cd8df0be958e21e3dd7c34aba.jpg";
 
         public static  Dictionary<string, Color> TrackColors = new Dictionary<string, Color>()
         {

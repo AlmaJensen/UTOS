@@ -48,7 +48,7 @@ namespace UTOS.PageModels
                 AddedToggleText = add;
 
             if (string.IsNullOrEmpty(Speaker.GravatarImageString))
-                Speaker.GravatarImageString = "https://www.gravatar.com/avatar/19e7872cd8df0be958e21e3dd7c34aba.jpg";
+                Speaker.GravatarImageString = Resources.DefaultGravitarImage;
             ImageSr = ImageSource.FromUri(new Uri(Speaker.GravatarImageString));
 
         }
