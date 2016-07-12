@@ -10,12 +10,13 @@ namespace UTOS.Pages
 {
     public class SponsorsPage : ContentPage
     {
+        ListView Sponsors = new ListView(ListViewCachingStrategy.RecycleElement) { VerticalOptions = LayoutOptions.FillAndExpand };
         public SponsorsPage()
         {
             Content = new StackLayout
             {
                 Children = {
-                    new Label { Text = "Hello ContentPage" }
+                    Sponsors
                 }
             };
         }
